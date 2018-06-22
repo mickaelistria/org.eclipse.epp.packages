@@ -16,6 +16,18 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${basedir}/jre</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>com.google.code.maven-replacer-plugin</groupId>
 				<artifactId>replacer</artifactId>
 				<version>1.5.3</version>
@@ -54,7 +66,7 @@
 						</goals>
 						<phase>generate-resources</phase>
 						<configuration>
-							<url>https://github.com/AdoptOpenJDK/openjdk8-openj9-releases/releases/download/jdk8u162-b12_openj9-0.8.0/OpenJDK8-OPENJ9_x64_Linux_jdk8u162-b12_openj9-0.8.0.tar.gz</url>
+							<url>https://github.com/AdoptOpenJDK/openjdk10-openj9-nightly/releases/download/jdk-10.0.1%2B10-201819061532/OpenJDK10-OPENJ9_x64_Linux_201819061532.tar.gz</url>
 							<!-- sha256 4a90944fbe96cb6452391e952cc7c9b5136fb042a445eb205e31a029fd72fd7c -->
 							<unpack>true</unpack>
 						</configuration>
@@ -75,7 +87,7 @@
 							<outputDirectory>${basedir}/jre</outputDirectory>
 							<resources>
 								<resource>
-									<directory>target/jdk8u162-b12_openj9-0.8.0/jre</directory>
+									<directory>${project.build.directory}/jdk-10.0.1+10/</directory>
 								</resource>
 							</resources>
 						</configuration>
