@@ -88,6 +88,8 @@
 							<resources>
 								<resource>
 									<directory>${project.build.directory}/jdk-10.0.1+10/</directory>
+									<!-- Workaround https://github.com/eclipse/openj9/issues/2239 -->
+									<exclude>lib/libfreetype.so.6</exclude>
 								</resource>
 							</resources>
 						</configuration>
