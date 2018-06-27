@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature id="org.eclipse.epp.runtime.openj9.linux.x86_64.feature" version="0.0.0"/>
+	<feature id="org.eclipse.epp.runtime.openj9.linux.x86_64.feature" version="0.0.0" os="linux" arch="x86_64"/>
+	<feature id="org.eclipse.epp.runtime.openj9.win32.x86_64.feature" version="0.0.0" os="win32" arch="x86_64"/>
+	<!--feature id="org.eclipse.epp.runtime.openj9.macosx.x86_64.feature" version="0.0.0" os="win32" arch="x86_64"/-->
 </site>

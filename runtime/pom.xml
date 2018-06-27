@@ -1,63 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <name>Eclipse Packaging Project (EPP) - Runtime parent</name>
+	<name>Eclipse Packaging Project (EPP) - Runtime parent</name>
 
-  <groupId>org.eclipse.epp.runtime</groupId>
-  <artifactId>parent</artifactId>
-  <version>4.8.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+	<groupId>org.eclipse.epp.runtime</groupId>
+	<artifactId>parent</artifactId>
+	<version>4.8.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
-  <properties>
-    <java.version>1.8</java.version>
-    <maven.version>3.1.1</maven.version>
-    <tycho.version>1.2.0</tycho.version>
-    <tycho.extras.version>${tycho.version}</tycho.extras.version>
-    <tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/epp/org.eclipse.epp.packages.git</tycho.scmUrl>
-    <cbi.version>1.1.5</cbi.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
-  </properties>
-  
-  <prerequisites>
-    <maven>${maven.version}</maven>
-  </prerequisites>
+	<properties>
+		<java.version>1.8</java.version>
+		<maven.version>3.1.1</maven.version>
+		<tycho.version>1.2.0</tycho.version>
+		<tycho.extras.version>${tycho.version}</tycho.extras.version>
+		<tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/epp/org.eclipse.epp.packages.git</tycho.scmUrl>
+		<cbi.version>1.1.5</cbi.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
+	</properties>
+	
+	<prerequisites>
+		<maven>${maven.version}</maven>
+	</prerequisites>
 
-  <pluginRepositories>
-    <pluginRepository>
-      <id>eclipse-tycho</id>
-      <url>https://oss.sonatype.org/content/repositories/public/</url>
-    </pluginRepository>
-    <pluginRepository>
-      <id>eclipse-cbi</id>
-      <url>https://repo.eclipse.org/content/groups/cbi/</url>
-    </pluginRepository>
-  </pluginRepositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>eclipse-tycho</id>
+			<url>https://oss.sonatype.org/content/repositories/public/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>eclipse-cbi</id>
+			<url>https://repo.eclipse.org/content/groups/cbi/</url>
+		</pluginRepository>
+	</pluginRepositories>
 
-  <modules>
-    <module>linux.x86_64</module>
-    <module>runtime-repository</module>
-  </modules>
+	<modules>
+		<module>linux.x86_64</module>
+		<module>win32.x86_64</module>
+		<!-- module>macosx.x86_64</module-->
+		<module>runtime-repository</module>
+	</modules>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-maven-plugin</artifactId>
-        <extensions>true</extensions>
-      </plugin>
-    </plugins>
-  </build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<!-- environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment-->
+					</environments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<repositories>
-	  <repository>
-      <id>license-feature</id>
-      <url>http://download.eclipse.org/cbi/updates/license/</url>
-      <layout>p2</layout>
-    </repository>
-  </repositories>
+		<repository>
+			<id>license-feature</id>
+			<url>http://download.eclipse.org/cbi/updates/license/</url>
+			<layout>p2</layout>
+		</repository>
+	</repositories>
 
 </project>
