@@ -4,7 +4,7 @@
       label="OpenJDK with OpenJ9 Runtime"
       version="4.8.0.qualifier"
       provider-name="Eclipse Packaging Project"
-      os="linux"
+      os="macosx"
       arch="x86_64"
       license-feature="org.eclipse.license"
       license-feature-version="0.0.0">
