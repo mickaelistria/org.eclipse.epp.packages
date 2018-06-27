@@ -38,7 +38,7 @@
   </pluginRepositories>
 
   <modules>
-    <module>unit</module>
+    <module>linux.x86_64</module>
     <module>runtime-repository</module>
   </modules>
 

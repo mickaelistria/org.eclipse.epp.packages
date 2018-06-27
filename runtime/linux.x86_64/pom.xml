@@ -10,7 +10,7 @@
 		<version>4.8.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>org.eclipse.epp.runtime.openj9.feature</artifactId>
+	<artifactId>org.eclipse.epp.runtime.openj9.linux.x86_64.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 	
 	<build>
