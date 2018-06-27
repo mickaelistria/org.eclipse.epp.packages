@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.epp.runtime.openj9.linux.x86_64.feature"
-      label="OpenJDK with OpenJ9 Runtime"
+      label="OpenJDK with OpenJ9 Runtime (Linux x86_64)"
       version="4.8.0.qualifier"
       provider-name="Eclipse Packaging Project"
       os="linux"
